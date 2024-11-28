@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        /* Styling for correct and wrong answers */
+        .correct {
+            background-color: green;
+            color: white;
+        }
+
+        .wrong {
+            background-color: red;
+            color: white;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="question"></div>
+    <div class="options">
+        <button class="option" id="option0"></button>
+        <button class="option" id="option1"></button>
+        <button class="option" id="option2"></button>
+        <button class="option" id="option3"></button>
+    </div>
+    <button id="next-btn" style="display: none" onclick="nextQuestion()">Next</button>
+    <button id="retake-btn" style="display: none" onclick="retakeQuiz()">Retake Quiz</button>
+
+    <script>
+        const questions =[
+    {
+        question: "What is the capital of Nigeria?",
+        options: ["Lagos","Abuja","Uyo","Yola"],
+        answer: 1  
+    },
+    {
+        question: "What is the result 5x5?",
+        options: ["25","10","5","20"],
+        answer: 0  
+    },
+    {
+        question: "Who is the head of the family?",
+        options: ["Uncle","Mother","Father","Aunty"],
+        answer: 2 
+    }
+]
+
+let currentQuestionindex =0;
+let score =0
+
+function displayQuestion() {
+    const questionElement = document.getElementById("question");
+    const optionButton =document.querySelectorAll(".option");
+    const question =questions[currentQuestionindex];
+
+questionElement.textContent = question.question;
+optionButton.forEach( (button, index) => {
+    button.textContent = question.options[index];
+    button.disabled = false;
+    button.classList.remove("correct","wrong");
+});
+
+document.getElementById("next-btn").style.display = "inline"
+document.getElementById("retake-btn").style.display = "none"
+    const
+}
+
+
+window.onload = displayQuestion;
+                  
+    </script>
+</body>
+</html>
